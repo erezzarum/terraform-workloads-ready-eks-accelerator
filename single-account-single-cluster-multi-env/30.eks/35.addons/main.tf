@@ -20,7 +20,8 @@ module "eks_blueprints_addons" {
   # common addons deployed with EKS Blueprints Addons
   enable_aws_load_balancer_controller = true
   aws_load_balancer_controller = {
-    values = [yamlencode(local.critical_addons_tolerations)]
+    chart_version = "1.8.2"
+    values        = [yamlencode(local.critical_addons_tolerations)]
   }
 
   # Common addons needed for Observability Accerelrator w/ AMP (cert_manager, external secrets)
